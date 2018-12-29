@@ -18,12 +18,14 @@ import demo.repository.TeamRepository;
 @SpringBootApplication
 public class Application {
 
+    //Use this repository
 	@Autowired TeamRepository teamRepository;
 	
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-    
+
+    //once application starts, execute this
     @PostConstruct
 	public void init() {
 		List<Team> list = new ArrayList<>();
@@ -36,6 +38,7 @@ public class Application {
 		list.add(new Team("Harlem", "Globetrotters", set));
 		list.add(new Team("Washington","Generals",null));
 
+		//in-built spring-data method
 		teamRepository.saveAll(list);
 	}    
     

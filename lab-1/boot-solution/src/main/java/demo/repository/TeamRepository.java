@@ -5,7 +5,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import demo.domain.Team;
 
-@RestResource(path="teams", rel="team")
+@RestResource(path="teams", rel="teams")
 public interface TeamRepository extends CrudRepository<Team,Long>{
-
+    //custom method
+    Team findByName(String name);
 }
